@@ -2,8 +2,20 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    public UserInterface() {
-        System.out.println("Welcome to Marios Pizzabar! " +
+    private final Controller controller;
+
+    public UserInterface(Controller controller){
+        this.controller = controller;
+    }
+
+    public void start(){
+        System.out.println("Welcome to Marios Pizzabar!");
+
+        mainMenu();
+    }
+
+    public void mainMenu() {
+        System.out.println(
                 "\nCommands:" +
                 "\n\t1. Menu" +
                 "\n\t2. Orders" +
@@ -24,6 +36,7 @@ public class UserInterface {
                 }
                 case 2 -> {
                     System.out.println("Show orders.");
+                    showAllOrders();
                     // TODO show orders
                 }
                 case 3 -> {
@@ -40,5 +53,18 @@ public class UserInterface {
                 }
             }
         }
+    }
+
+    public void showMenu(){
+        for (Pizza pizza : controller.getAllPizzas()) {
+            System.out.println(pizza);
+        }
+    }
+
+    public void showAllOrders(){
+        System.out.println("""
+                All active orders
+                ---------------""");
+
     }
 }

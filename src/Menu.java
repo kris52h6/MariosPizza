@@ -3,13 +3,9 @@ public class Menu {
 
     public Menu() {
 
-
-
-
     //Alle pizzaer - Strings
 
-    Pizza vesuvio = new Pizza("Hawaii", 1, new String[]{"tomatsauce", "ost", "skinke", "oregano"});
-    System.out.println(vesuvio);
+    Pizza vesuvio = new Pizza("Vesuvio", 1, new String[]{"tomatsauce", "ost", "skinke", "oregano"}, 57);
 
     Pizza amerikaner = new Pizza ("Amerikaner", 2, new String[]{"tomatsauce", "ost", "oksefars", "oregano"}, 53);
 

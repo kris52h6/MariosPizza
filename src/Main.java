@@ -1,10 +1,10 @@
 public class Main {
 
+
     public static void main(String[] args) {
-	// write your code here
-        UserInterface ui = new UserInterface();
-
-
+        Controller controller = new Controller();
+        UserInterface ui = new UserInterface(controller);
+        ui.start();
 
     }
 }
