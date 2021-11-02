@@ -1,5 +1,7 @@
+import java.util.ArrayList;
+
 public class Menu {
-    private ArrayList<Pizza> menu = new ArrayList<>();
+    private ArrayList<Pizza> menuList = new ArrayList<>();
 
     public Menu() {
 
@@ -61,7 +63,7 @@ public class Menu {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (Pizza pizza : menu) {
+        for (Pizza pizza : menuList) {
             sb.append(pizza);
         }
         return sb.toString();

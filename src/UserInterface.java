@@ -25,6 +25,8 @@ public class UserInterface {
         );
 
         Scanner scanner = new Scanner(System.in);
+        Controller controller = new Controller();
+
 
         boolean running = true;
         while (running) {
@@ -32,6 +34,7 @@ public class UserInterface {
             switch (userInput) {
                 case 1 -> {
                     System.out.println("Showing menu.");
+                    showMenu();
                     // TODO show menu
                 }
                 case 2 -> {
