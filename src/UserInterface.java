@@ -67,8 +67,9 @@ public class UserInterface {
         boolean add = controller.addOrder(pizzaId);
         if (add) {
             System.out.println("Order added!");
-        } else
+        } else {
             System.out.println("Order failed.");
+        }
     }
 
     private void finishOrder(Scanner scanner) {
