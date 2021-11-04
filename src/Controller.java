@@ -22,7 +22,7 @@ public class Controller {
 
 
     // ----------- Add order
-    public Pizza getPizzaById(int pizzaNumber) {
+    Pizza getPizzaById(int pizzaNumber) {
         for (Pizza pizza: menu.getAllPizzas()) {
             if (pizzaNumber == pizza.getId()) {
                 System.out.println(pizza);
@@ -38,11 +38,15 @@ public class Controller {
         return new Order(counter, pizza);
     }
 
+    public void addToOrder(Order order, Pizza pizza) {
+        order.addToOrder(pizza);
+    }
+
     public boolean addOrder(int pizzaId) {
         Pizza pizza = getPizzaById(pizzaId);
         if (pizza != null) {
-            Order order = createOrder(pizza);
-            orderList.add(order);
+            Order order = createOrder();
+            addToOrder(order, pizza);
             return true;
         }
         return false;

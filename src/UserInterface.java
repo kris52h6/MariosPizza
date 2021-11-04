@@ -40,8 +40,13 @@ public class UserInterface {
                 case 3 -> {
                     System.out.println("Add order.");
                     System.out.print("Which pizza number to add?: ");
-                    int pizzaId = scanner.nextInt();
-                    addOrder(pizzaId);
+                    System.out.println("Enter 0 to stop adding pizzas.");
+                    boolean addingPizzas = true;
+                    while (addingPizzas) {
+                        int pizzaId = scanner.nextInt();
+                        addOrder(pizzaId);
+
+                    }
 
                 }
                 case 4 -> {
