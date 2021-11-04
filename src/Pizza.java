@@ -13,8 +13,20 @@ public class Pizza {
         this.price = price;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
-        return id + ". " + name + ": " + Arrays.toString(toppings) + "..." + price + ",-";
+        return id + ". " + name + ": " + Arrays.toString(toppings).replaceAll("[\\[\\]]","") + "..." + price + ",-";
     }
 }
