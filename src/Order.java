@@ -4,9 +4,9 @@ public class Order {
     private int orderId;
     private Pizza order;
 
-    public Order(int orderId, Pizza order) {
+    public Order(int orderId) {
         this.orderId = orderId;
-        this.order = order;
+        this.pizzas = pizzas;
     }
 
     @Override

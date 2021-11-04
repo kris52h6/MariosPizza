@@ -33,9 +33,9 @@ public class Controller {
     }
 
     
-    public Order createOrder(Pizza pizza) {
+    public Order createOrder() {
         int counter = orderList.size() + 1; // sets orderId to be the length of the orderList. +1 to skip 0
-        return new Order(counter, pizza);
+        return new Order(counter);
     }
 
     public void addToOrder(Order order, Pizza pizza) {

@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -38,7 +39,6 @@ public class UserInterface {
                     showAllOrders();
                 }
                 case 3 -> {
-                    System.out.println("Add order.");
                     System.out.print("Which pizza number to add?: ");
                     System.out.println("Enter 0 to stop adding pizzas.");
                     boolean addingPizzas = true;
@@ -63,6 +63,7 @@ public class UserInterface {
     }
 
     private void addOrder(int pizzaId) {
+        Order order = controller.createOrder();
         boolean add = controller.addOrder(pizzaId);
         if (add) {
             System.out.println("Order added!");
