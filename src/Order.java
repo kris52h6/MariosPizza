@@ -18,13 +18,13 @@ public class Order {
     public String toString() {
         String result = "";
         result += "Order number: " + orderId + "\n";
-        result += "Pizzasn";
+        result += "Pizzas: \n";
 
         if(pizzas.size() == 0) {
             result += "No pizza is added";
         } else {
             for (int i = 0; i < pizzas.size(); i++) {
-                result += pizzas.get(i).getName() + "\n";
+                result += "\t" + pizzas.get(i).getName() + "\n";
             }
         }
 
@@ -32,7 +32,11 @@ public class Order {
     }
 
     public String getOrder() {
-        return order.getName() + ";" + order.getPrice();
+        String result = "";
+        for (Pizza pizza: pizzas) {
+            result += pizza.getName() + ";" + pizza.getPrice() + "\n" ;
+        }
+        return result;
     }
 
     public int getOrderId() {

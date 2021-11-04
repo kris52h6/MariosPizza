@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class UserInterface {
     /*private Scanner scanner;*/
     private final Controller controller;
+    Scanner scanner = new Scanner(System.in);
+
 
     public UserInterface(Controller controller){
         this.controller = controller;
@@ -25,7 +27,6 @@ public class UserInterface {
                     9. Exit program
                 """);
 
-        Scanner scanner = new Scanner(System.in);
 
         boolean running = true;
         while (running) {
@@ -41,18 +42,12 @@ public class UserInterface {
                 case 3 -> {
                     System.out.print("Which pizza number to add?: ");
                     System.out.println("Enter 0 to stop adding pizzas.");
-                    boolean addingPizzas = true;
-                    while (addingPizzas) {
-                        int pizzaId = scanner.nextInt();
-                        addOrder(pizzaId);
-
-                    }
-
+                        addOrder();
                 }
                 case 4 -> {
                     System.out.println("Finish order.");
                     System.out.println("Which order do you want to finish?: ");
-                    finishOrder(scanner);
+                    finishOrder();
                 }
                 case 9 -> {
                     System.out.println("Exiting program...");
@@ -62,17 +57,25 @@ public class UserInterface {
         }
     }
 
-    private void addOrder(int pizzaId) {
-        Order order = controller.createOrder();
-        boolean add = controller.addOrder(pizzaId);
-        if (add) {
-            System.out.println("Order added!");
-        } else {
-            System.out.println("Order failed.");
+    private void addOrder() {
+        Order currentOrder = controller.createOrder();
+
+        boolean addingPizzas = true;
+        while (addingPizzas) {
+            int pizzaId = scanner.nextInt();
+            boolean add = controller.addToOrder(currentOrder, pizzaId);
+            if (add) {
+                System.out.println("Added pizza to order");
+            }else if (pizzaId == 0) {
+                System.out.println("Order finished.");
+                addingPizzas = false;
+            } else {
+                System.out.println("Order failed.");
+            }
         }
     }
 
-    private void finishOrder(Scanner scanner) {
+    private void finishOrder() {
         int orderId = scanner.nextInt();
         boolean finish = controller.finishOrder(orderId);
         if (finish) {

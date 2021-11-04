@@ -22,34 +22,36 @@ public class Controller {
 
 
     // ----------- Add order
-    Pizza getPizzaById(int pizzaNumber) {
+
+    // checks if the pizza exists on the menu
+    private Pizza checkPizzaId(int pizzaNumber) {
         for (Pizza pizza: menu.getAllPizzas()) {
             if (pizzaNumber == pizza.getId()) {
-                System.out.println(pizza);
                 return pizza;
             }
         }
         return null;
     }
 
-    
+
+    public boolean addToOrder(Order currentOrder, int pizzaId) {
+        Pizza pizza = checkPizzaId(pizzaId);
+        if (pizza != null) {
+            currentOrder.addToOrder(pizza);
+            return true;
+        }
+        finished(currentOrder);
+        return false;
+    }
+
     public Order createOrder() {
         int counter = orderList.size() + 1; // sets orderId to be the length of the orderList. +1 to skip 0
         return new Order(counter);
     }
 
-    public void addToOrder(Order order, Pizza pizza) {
-        order.addToOrder(pizza);
-    }
-
-    public boolean addOrder(int pizzaId) {
-        Pizza pizza = getPizzaById(pizzaId);
-        if (pizza != null) {
-            Order order = createOrder();
-            addToOrder(order, pizza);
-            return true;
-        }
-        return false;
+    // Adds orders to full orderlist.
+    private void finished(Order currentOrder) {
+        orderList.add(currentOrder);
     }
 
     // ----------- Remove order
@@ -68,7 +70,7 @@ public class Controller {
 
         try {
             PrintStream ps = new PrintStream(new FileOutputStream(file, true));
-            ps.println(order.getOrder() + "kr");
+            ps.println(order.getOrder());
         } catch (FileNotFoundException e) {
         }
     }
@@ -77,7 +79,7 @@ public class Controller {
         orderList.remove(order);
     }
 
-    public Order checkOrder(int orderId) {
+    private Order checkOrder(int orderId) {
         for (Order order: orderList) {
             if (orderId == order.getOrderId()) {
                 return order;
