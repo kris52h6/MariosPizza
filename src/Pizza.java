@@ -25,6 +25,13 @@ public class Pizza {
         return price;
     }
 
+    public String getNameById(int pizzaId) {
+        if(pizzaId == id){
+            return name;
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return id + ". " + name + ": " + Arrays.toString(toppings).replaceAll("[\\[\\]]","") + "..." + price + ",-";

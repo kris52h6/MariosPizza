@@ -1,4 +1,6 @@
+import java.io.FileNotFoundException;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -11,13 +13,13 @@ public class UserInterface {
         this.controller = controller;
     }
 
-    public void start(){
+    public void start() throws FileNotFoundException {
         System.out.println("Welcome to Marios Pizzabar!");
 
         mainMenu();
     }
 
-    public void mainMenu() {
+    public void mainMenu() throws FileNotFoundException {
         System.out.println("""
                 \nCommands:
                     1. Menu
@@ -48,6 +50,11 @@ public class UserInterface {
                     System.out.println("Finish order.");
                     System.out.println("Which order do you want to finish?: ");
                     finishOrder();
+                }
+                case 5 -> {
+                    System.out.println("All orders:");
+                    allFinishedOrders();
+
                 }
                 case 9 -> {
                     System.out.println("Exiting program...");
@@ -99,5 +106,12 @@ public class UserInterface {
             System.out.println(order);
         }
 
+    }
+
+    public void allFinishedOrders() throws FileNotFoundException {
+        ArrayList allFinishedOrders = controller.getFinishedOrders();
+        for (int i = 0; i < ((ArrayList<?>) allFinishedOrders).size(); i++) {
+            System.out.println(allFinishedOrders.get(i));
+        }
     }
 }
