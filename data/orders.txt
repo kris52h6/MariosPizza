@@ -13,3 +13,6 @@ Amerikaner;53
 Dennis;65
 Carbona;63
 
+Vesuvio;57
+Amerikaner;53
+
