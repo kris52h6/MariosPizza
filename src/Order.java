@@ -42,4 +42,23 @@ public class Order {
     public int getOrderId() {
         return orderId;
     }
+
+    public String writeToFile(){
+        String result = "";
+        result += orderId;
+        result += ";";
+
+        for (int i = 0; i < pizzas.size(); i++) {
+            int count = i+1;
+            if (count == pizzas.size()){
+                result += pizzas.get(i).getId();
+            }
+            else {
+                result += pizzas.get(i).getId();
+                result += ",";
+            }
+        }
+        result+= ";";
+        return result;
+    }
 }

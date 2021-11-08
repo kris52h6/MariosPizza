@@ -24,7 +24,7 @@ public class Pizza {
     public int getPrice() {
         return price;
     }
-
+    
     @Override
     public String toString() {
         return id + ". " + name + ": " + Arrays.toString(toppings).replaceAll("[\\[\\]]","") + "..." + price + ",-";

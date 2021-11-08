@@ -1,0 +1,14 @@
+Vesuvio;1;tomat,ost,skinke,oregano;57;
+Amerikaner;2;tomat,ost,oksefars,oregano;53;
+Cacciatorre;3;tomat,ost,pepperoni,oregano;57;
+Carbona;4;tomat,ost,kødsauce,spaghetti,cocktailpølser,oregano;63;
+Dennis;5;tomat,ost,skinke,pepperoni,cocktailpølser,oregano;65;
+Bertil;6;tomat,ost,bacon,oregano;57;
+Silvia;7;tomat,ost,pepperoni,rød peber,løg,oliven,oregano;61;
+Victoria;8;tomat,ost,skinke,ananas,champignon,løg,oregano;61;
+Toronfo;9;tomat,ost,skinke,bacon,kebab,chili,oregano;61;
+Capricciosa;10;tomat,ost,skinke,champignon,oregano;61;
+Hawai;11;tomat,ost,skinke,ananas,oregano;61;
+Le Blissola;12;tomat,ost,skinke,rejer,oregano;61;
+Venezia;13;tomat,ost,skinke,bacon,oregano;61;
+Mafia;14;tomat,ost,pepperoni,bacon,løg,oregano;61;
